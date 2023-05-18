@@ -1,0 +1,80 @@
+* {
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: aliceblue;
+}
+button {
+    background-color: rgb(199, 199, 76);
+    color: black;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+button:hover {
+    transform: scale(1.2);
+}
+
+h1 {
+    background-color: yellow;
+    text-align: center;
+    color: rgb(10, 10, 10);
+    padding: 5px;
+}
+
+li{
+    font-size: 18px;
+    margin-bottom: 22px;
+    list-style: none;
+}
+
+div{
+    margin-top: 10px;
+}
+
+
+
+h2,
+p {
+    color: rgb(17, 22, 37);
+}
+
+h2 span,
+p span {
+    color: rgb(119, 137, 172);
+}
+
+img {
+    border-radius: 50%;
+    width: 200px;
+}
+
+.boton {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.container {
+    width: 60%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    box-shadow: 2px 2px 7px rgb(73, 87, 105);
+    border-radius: 10px;
+}
+
+.seachbtn{
+    margin-top: 4px;
+}
+
+@media (max-width: 600px) {
+    .contenedor {
+        width: 90%;
+    }
+}
