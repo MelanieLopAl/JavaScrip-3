@@ -1,0 +1,17 @@
+.main{
+    display: flex;
+}
+
+.visualization{
+    display: flex;
+    justify-content: center;
+}
+
+.product-visualization p{
+    position: absolute;
+    top: 10%;
+}
+
+.product{
+    margin-left: 50px;
+}
