@@ -12,7 +12,7 @@ function searchJokes(keyword) {
     .then(response => response.json())
     .then(data => {
       if (data.results.length > 0) {
-        const jokes = data.results.map(result => `<li><a href="product.html">${result.joke}</a></li>`).join('');
+        const jokes = data.results.map(result => `<li id="getJokeById" ><a href="product.html"></a></li>`).join('');
         jokeResults.innerHTML = jokes;
       } else {
         jokeResults.innerHTML = '<li> No jokes found </li>';

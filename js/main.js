@@ -1,8 +1,7 @@
 import { getJoke } from "./ramdon.js";
-getJoke();
-
 import { searchJokes } from "./seach.js";
+
+getJoke();
 searchJokes();
 
-import { product } from "./product.js"
-product();
+

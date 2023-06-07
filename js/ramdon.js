@@ -24,7 +24,18 @@ btnRamdon.addEventListener('click', function() {
   getJoke();
 });
 
+async function getJokeById(id) {
 
+  return fetch(`${apiUrl}j/${id}`, {
+    headers: {
+      Accept: 'application/json'
+    }
+  })
+    .then((response) => response.json())
+    .catch((error) => {
+      logErrors();
+    });
+}
 
 // Exporta la función getJoke
-export { getJoke };
+export { getJoke, getJokeById };
