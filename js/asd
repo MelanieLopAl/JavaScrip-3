@@ -1,0 +1,56 @@
+//PARTE TRES. BOTONES
+
+//agregar producto 
+const addToCartButton = document.getElementById("add-to-cart-btn");
+addToCartButton.addEventListener("click", function () {
+const product = new Product(
+  currentProduct,
+  currentColor === "white" ? "Blanco" : "Negro",
+  productPrices[currentProduct][currentColor],
+  currentJoke
+);
+
+const cartProducts = document.getElementById("cart-products");
+const productMarkup = product.createMarkup();
+cartProducts.appendChild(productMarkup);
+});
+
+// remover producto
+function removeProduct(event) {
+const productElement = event.target.closest(".cart-product");
+productElement.remove();
+}
+
+// evento remover
+const cartProducts = document.getElementById("cart-products");
+cartProducts.addEventListener("click", function (event) {
+if (event.target.classList.contains("remove-button")) {
+  removeProduct(event);
+}
+});
+
+// evento remove all 
+const removeAllButton = document.getElementById("remove-all-btn");
+removeAllButton.addEventListener("click", function () {
+cartProducts.innerHTML = "";
+});
+
+const cartOpenButton = document.getElementById("cart-open-btn");
+const cartOverlay = document.getElementById("cart-overlay");
+const cartCloseButton = document.getElementById("cart-close-btn");
+
+// abrir carrito
+function openCart() {
+cartOverlay.classList.add("open");
+}
+
+//cerrar el carrito
+function closeCart() {
+cartOverlay.classList.remove("open");
+}
+
+// evento abrir carrito
+cartOpenButton.addEventListener("click", openCart);
+
+// evento cerrar carrito
+cartCloseButton.addEventListener("click", closeCart);
