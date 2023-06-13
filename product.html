@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Product</title>
+  <link rel="stylesheet" type="text/css" href="./styless/product.css">
+</head>
+<body>
+  <div>
+    <header>
+      <button id="cart-open-btn">Open Cart</button>
+    </header>
+
+    <main class="main">
+      <section class="visualization">
+        <div id="product-visualization" class="product-visualization">
+          <img id="one-img" src="./img/product-shirt-black.jpg" height="200px">
+          <p id="joke-home">Joke:</p>
+        
+          <div id="color-selection">
+            <div>
+              <label><input type="radio" name="color" value="black" id="black-color" checked> black </label>
+            </div>
+            <div>
+              <label><input type="radio" name="color" value="white" id="white-color"> white </label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="product">
+        <h2>Selected Product</h2>
+        <h1 id="product-title"></h1>
+        <p id="product-price"></p>
+        <p id="selected-joke"></p>
+        <div id="div-ramdonjk">
+          <ul>
+                <li id="dad-jokerd">  </li>
+                <button id="botonrd">Ramdon joke</button>
+              </ul>
+        </div>
+        <button id="add-to-cart-btn">Add to Cart</button>
+      </section>
+    </main>
+
+    <section id="other-products-selection">
+      <h2>Choose Another Product</h2>
+      <button id="t-shirt" class="product-button">
+        <img src="img/product-shirt-black.jpg" height="200px">
+      </button>
+      <button id="phone-case" class="product-button">
+        <img src="img/product-case-black.jpg" height="200px">
+      </button>
+      <button id="poster" class="product-button">
+        <img src="img/product-poster-black.jpg" height="200px">
+      </button>
+      <button id="pillow" class="product-button">
+        <img src="img/product-pillow-black.jpg" height="200px">
+      </button>
+    </section>
+
+    <div id="cart-overlay">
+      <div class="cart-content">
+        <h2>Cart</h2>
+        <div id="cart-products"></div>
+        <button id="cart-close-btn">Close Cart</button>
+        <button id="remove-all-btn">Remove All</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./js/product.js"></script>
+</body>
+</html>
