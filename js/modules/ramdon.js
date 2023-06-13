@@ -4,7 +4,6 @@ const textRmd = document.querySelector('#dad-jokerd');
 const url = 'https://icanhazdadjoke.com/';
 textRmd.style.display = 'none';
 
-// Linkea el API para obtener los chistes
 function getJoke() {
   fetch(url,  {
     headers: {
@@ -18,7 +17,6 @@ function getJoke() {
     .catch(error => console.error(error));
 }
 
-// Evento para chsite aleatorio
 btnRamdon.addEventListener('click', function() {
   textRmd.style.display = 'block';
   getJoke();
@@ -37,5 +35,4 @@ async function getJokeById(id) {
     });
 }
 
-// Exporta la función getJoke
 export { getJoke, getJokeById };

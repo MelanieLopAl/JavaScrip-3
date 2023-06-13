@@ -4,6 +4,7 @@ import { getJoke } from "./modules/ramdon.js";
 
 getJoke();
 
+
   const whiteBtn = document.getElementById("white-color");
   const blackBtn = document.getElementById("black-color");
   const productPhone = document.getElementById("phone-case");
@@ -58,7 +59,6 @@ getJoke();
   observer.subscribe(updatePrice);
   observer.subscribe(updateJoke);
   
-
   whiteBtn.addEventListener("click", function () {
     currentColor = "white";
     observer.notify();
