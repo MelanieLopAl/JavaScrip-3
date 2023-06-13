@@ -1,8 +1,6 @@
 const searchIpt = document.querySelector('#div-search');
 const jokeResults = document.querySelector('#results-joke');
 
-//funcion para que en el input 
-//se pueda buscar una palabra al azar y de un chsite
 function searchJokes(keyword) {
   fetch(`https://icanhazdadjoke.com/search?term=${keyword}`, {
     headers: {
@@ -20,7 +18,6 @@ function searchJokes(keyword) {
     })
     .catch(error => console.error(error));
 
-    //evento para que al dar click en el boton busque el chiste
     searchIpt.addEventListener('submit', event => {
     event.preventDefault();
     const keyword = searchIpt.elements['ramdon-wrd'].value;
@@ -29,5 +26,4 @@ function searchJokes(keyword) {
 
 }
 
-//exportar la pag al main js
 export {searchJokes};

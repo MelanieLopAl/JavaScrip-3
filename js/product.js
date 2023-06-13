@@ -1,5 +1,9 @@
-import { Observer } from "./Observer.js";
-import { Product } from "./classPd.js"
+import { Observer } from "./modules/Observer.js";
+import { Product } from "./modules/classPd.js"
+import { getJoke } from "./modules/ramdon.js";
+
+getJoke();
+
 
   const whiteBtn = document.getElementById("white-color");
   const blackBtn = document.getElementById("black-color");
@@ -10,7 +14,6 @@ import { Product } from "./classPd.js"
   const productVz = document.querySelector("#product-visualization img");
   
   
-  // Precio de los productos
   const productPrices = {
     "t-shirt": {  black: 13 ,white: 10 },
     poster: { black: 5 , white: 3  },
@@ -18,44 +21,37 @@ import { Product } from "./classPd.js"
     pillow: {black: 15 , white: 12 },
   };
   
-  // Producto seleccionado
   let currentProduct = "t-shirt";
   let currentColor = "black";
   let currentJoke = "";
   
   
-  // Elementos de la página
   const productVisualization = document.getElementById("product-visualization");
   const productTitle = document.getElementById("product-title");
   const productPrice = document.getElementById("product-price");
   const selectedJoke = document.getElementById("selected-joke");
   
-  // Actualizar la visualización del producto
   function updateProductVisualization() {
     const imageUrl = `./img/${currentProduct}-${currentColor}.jpg`;
     productVisualization.src = imageUrl;
   }
   
-  // Actualizar el título del producto
-  // Actualizar el título del producto
+
   function updateTitle() {
     const productTitleText = `${capitalizeFirstLetter(currentProduct)} ${currentColor === "white" ? "Blanco" : "Negro"}`;
     productTitle.textContent = productTitleText;
     updatePrice();
   }
   
-  // Actualizar el precio del producto
   function updatePrice() {
     const productPriceText = `$${productPrices[currentProduct][currentColor]}`;
     productPrice.textContent = productPriceText;
   }
   
-  // Actualizar el chiste seleccionado
   function updateJoke() {
     selectedJoke.textContent = `NewJoke: ${currentJoke}`;
   }
   
-  // Suscripciones a los observadores
   const observer = new Observer();
   
   observer.subscribe(updateProductVisualization);
@@ -63,25 +59,21 @@ import { Product } from "./classPd.js"
   observer.subscribe(updatePrice);
   observer.subscribe(updateJoke);
   
-  // Evento de clic para el botón de color blanco
   whiteBtn.addEventListener("click", function () {
     currentColor = "white";
     observer.notify();
   });
   
-  // Evento de clic para el botón de color negro
   blackBtn.addEventListener("click", function () {
     currentColor = "black";
     observer.notify();
   });
   
-  // Función para cambiar la imagen
   function changeImage(product, color) {
     const imageUrl = `../img/product-${product}-${color}.jpg`;
     productVisualization.querySelector("img").src = imageUrl;
   }
   
-  // Eventos de clic para los productos
   productPhone.addEventListener("click", function () {
     let product = "case";
     let color =  currentColor;
@@ -114,22 +106,16 @@ import { Product } from "./classPd.js"
     observer.notify();
   });
   
-  // Función auxiliar para capitalizar la primera letra de una cadena
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
   
-  // Inicialización de la página
   updateProductVisualization();
   updateTitle();
   updatePrice();
 
 
 
-//PARTE TRES. BOTONES
-
-
- //agregar producto 
 const addToCartButton = document.getElementById("add-to-cart-btn");
 addToCartButton.addEventListener("click", function () {
 const product = new Product(
@@ -144,13 +130,11 @@ const productMarkup = product.createMarkup();
 cartProducts.appendChild(productMarkup);
 });
 
-// remover producto
 function removeProduct(event) {
 const productElement = event.target.closest(".cart-product");
 productElement.remove();
 }
 
-// evento remover
 const cartProducts = document.getElementById("cart-products");
 cartProducts.addEventListener("click", function (event) {
 if (event.target.classList.contains("remove-button")) {
@@ -158,7 +142,6 @@ if (event.target.classList.contains("remove-button")) {
 }
 });
 
-// evento remove all 
 const removeAllButton = document.getElementById("remove-all-btn");
 removeAllButton.addEventListener("click", function () {
 cartProducts.innerHTML = "";
@@ -168,18 +151,14 @@ const cartOpenButton = document.getElementById("cart-open-btn");
 const cartOverlay = document.getElementById("cart-overlay");
 const cartCloseButton = document.getElementById("cart-close-btn");
 
-// abrir carrito
 function openCart() {
 cartOverlay.classList.add("open");
 }
 
-//cerrar el carrito
 function closeCart() {
 cartOverlay.classList.remove("open");
 }
 
-// evento abrir carrito
 cartOpenButton.addEventListener("click", openCart);
 
-// evento cerrar carrito
 cartCloseButton.addEventListener("click", closeCart);
